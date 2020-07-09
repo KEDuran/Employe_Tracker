@@ -1,19 +1,24 @@
 {
-  "name": "employee_tracker",
-  "version": "1.0.0",
-  "description": "![GitHub Language Count](https://img.shields.io/github/languages/count/KEDuran/Employee_Tracker?label=Languages%20Used&logo=GitHub) ![GitHub Followers](https://img.shields.io/github/followers/KEDuran?color=orange&label=Followers&logo=GitHub)",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/KEDuran/Employee_Tracker.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/KEDuran/Employee_Tracker/issues"
-  },
-  "homepage": "https://github.com/KEDuran/Employee_Tracker#readme"
+	"name": "employee_tracker",
+	"version": "1.0.0",
+	"description": "![GitHub Language Count](https://img.shields.io/github/languages/count/KEDuran/Employee_Tracker?label=Languages%20Used&logo=GitHub) ![GitHub Followers](https://img.shields.io/github/followers/KEDuran?color=orange&label=Followers&logo=GitHub)",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/KEDuran/Employee_Tracker.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/KEDuran/Employee_Tracker/issues"
+	},
+	"homepage": "https://github.com/KEDuran/Employee_Tracker#readme",
+	"dependencies": {
+		"console.table": "^0.10.0",
+		"inquirer": "^7.3.0",
+		"mysql": "^2.18.1"
+	}
 }
