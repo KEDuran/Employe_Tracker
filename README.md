@@ -20,6 +20,9 @@ Please use the table of contents provided below to navigate through the ReadMe.
 
 Links to submission items will be provided once the assignment is complete.
 
+- Link to GitHub repo will go here
+- Link to demo recording will fo here
+
 ## Assignment Scope
 
 ### User Story
