@@ -9,6 +9,13 @@ The main goal for this assignment is to build command line interface application
 
 ## Table of Contents
 
+Please use the table of contents provided below to navigate through the ReadMe.
+
+- [Links for Submission Items](#links-for-submission-items)
+- [Assignment Scope](#assignment-scope)
+- [Installation](#installation)
+- [Final Output](#final-output)
+
 ## Links for Submission
 
 ## Assignment Scope
