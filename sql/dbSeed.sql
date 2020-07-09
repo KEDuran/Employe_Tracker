@@ -20,3 +20,6 @@ CREATE TABLE role (
     deparment_id INTEGER,
     FOREIGN KEY (department_id) REFERENCES department(id)
 );
+
+-- Creates the table "employee" within employee_db --
+CREATE TABLE employee ();
