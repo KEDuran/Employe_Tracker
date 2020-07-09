@@ -17,7 +17,7 @@ CREATE TABLE role (
     id INTEGER(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(30) NOT NULL,
     salary DECIMAL(10,2) NOT NULL,
-    deparment_id INTEGER (10),
+    department_id INTEGER (10),
     FOREIGN KEY (department_id) REFERENCES department(id)
 );
 
@@ -39,13 +39,13 @@ INSERT INTO department (name) values ('Legal');
 INSERT INTO department (name) values ('Engineering');
 
 -- Inserting sample data into "role" table --
-INSERT INTO role (title, salary) values ('Accountant');
-INSERT INTO role (title, salary) values ('Sales Lead');
-INSERT INTO role (title, salary) values ('Lawyer');
-INSERT INTO role (title, salary) values ('Software Engineer');
+INSERT INTO role (title, salary) values ('Accountant',75000);
+INSERT INTO role (title, salary) values ('Sales Lead',150000);
+INSERT INTO role (title, salary) values ('Lawyer',300000);
+INSERT INTO role (title, salary) values ('Software Engineer',125000);
 
 -- Inserting sample data into "employee" table --
-INSERT INTO role (first_name, last_name) values ('Caleb', 'Duran');
-INSERT INTO role (first_name, last_name) values ('Bob', 'Johnson');
-INSERT INTO role (first_name, last_name) values ('JoeAnne','McDonald');
-INSERT INTO role (first_name, last_name) values ('Jared','Hendricks');
+INSERT INTO employee (first_name, last_name) values ('Caleb', 'Duran');
+INSERT INTO employee  (first_name, last_name) values ('Bob', 'Johnson');
+INSERT INTO employee  (first_name, last_name) values ('JoeAnne','McDonald');
+INSERT INTO employee  (first_name, last_name) values ('Jared','Hendricks');
