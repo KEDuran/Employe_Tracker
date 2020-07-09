@@ -39,13 +39,13 @@ INSERT INTO department (name) values ('Legal');
 INSERT INTO department (name) values ('Engineering');
 
 -- Inserting sample data into "role" table --
-INSERT INTO role (title, salary) values ('Accountant',75000);
-INSERT INTO role (title, salary) values ('Sales Lead',150000);
-INSERT INTO role (title, salary) values ('Lawyer',300000);
-INSERT INTO role (title, salary) values ('Software Engineer',125000);
+INSERT INTO role (title, salary, department_id) values ('Accountant',75000,1);
+INSERT INTO role (title, salary) values ('Sales Lead',150000,2);
+INSERT INTO role (title, salary) values ('Lawyer',300000,3);
+INSERT INTO role (title, salary) values ('Software Engineer',125000,4);
 
 -- Inserting sample data into "employee" table --
-INSERT INTO employee (first_name, last_name) values ('Caleb', 'Duran');
-INSERT INTO employee  (first_name, last_name) values ('Bob', 'Johnson');
-INSERT INTO employee  (first_name, last_name) values ('JoeAnne','McDonald');
-INSERT INTO employee  (first_name, last_name) values ('Jared','Hendricks');
+INSERT INTO employee (first_name, last_name, role_id) values ('Caleb', 'Duran');
+INSERT INTO employee (first_name, last_name, role_id, manager_id) values ('Bob', 'Johnson',1);
+INSERT INTO employee (first_name, last_name, role_id, manager_id) values ('JoeAnne','McDonald',1);
+INSERT INTO employee (first_name, last_name, role_id) values ('Jared','Hendricks');
