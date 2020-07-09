@@ -24,6 +24,14 @@ Links to submission items will be provided once the assignment is complete.
 
 ### User Story
 
+Here is the user story for this assignment that was provided by the Trilogy team.
+
+```
+As a business owner
+I want to be able to view and manage the departments, roles, and employees in my company
+So that I can organize and plan my business
+```
+
 ### Acceptance Criteria
 
 ## Installation
