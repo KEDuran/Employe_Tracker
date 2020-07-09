@@ -64,3 +64,7 @@ For extra credit, the user must be aple to:
 ## Installation
 
 ## Final Output
+
+### Database Schema
+
+### Demo of App Functionality
