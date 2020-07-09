@@ -31,3 +31,9 @@ CREATE TABLE employee (
     manager_id INTEGER(10),
     FOREIGN KEY (manager_id) REFERENCES employee(id)
 );
+
+-- Inserting sample data into "department" table --
+INSERT INTO department (name) values ('Finance');
+INSERT INTO department (name) values ('Sale');
+INSERT INTO department (name) values ('Legal');
+INSERT INTO department (name) values ('Engineering');
