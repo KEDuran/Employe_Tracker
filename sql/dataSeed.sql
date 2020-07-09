@@ -5,6 +5,7 @@ CREATE DATABASE employee_db;
 
 -- Ensures that the query that follows will use employee_db --
 USE employee_db;
+
 -- Creates the table "department" within employee_db --
 CREATE TABLE department (
   id INTEGER(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -19,5 +20,4 @@ CREATE TABLE role (
     salary DECIMAL(10,2) NOT NULL,
     deparment_id INTEGER,
     FOREIGN KEY (department_id) REFERENCES department(id)
-
 );
