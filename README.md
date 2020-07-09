@@ -49,7 +49,7 @@ The command line application must allow the user to:
 
 - Update employee roles
 
-### Bonus
+#### Bonus
 
 For extra credit, the user must be aple to:
 
