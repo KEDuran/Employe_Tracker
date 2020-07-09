@@ -37,6 +37,30 @@ So that I can organize and plan my business
 
 ### Acceptance Criteria
 
+Here is a list of the acceptance criteria required for this assignment that was provided by the Trilogy Team.
+
+#### MVP
+
+The command line application must allow the user to:
+
+- Add departments, roles, employees
+
+- View departments, roles, employees
+
+- Update employee roles
+
+### Bonus
+
+For extra credit, the user must be aple to:
+
+- Update employee managers
+
+- View employees by manager
+
+- Delete departments, roles, and employees
+
+- View the total utilized budget of a department -- ie the combined salaries of all employees in that department
+
 ## Installation
 
 ## Final Output
