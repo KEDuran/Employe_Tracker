@@ -63,6 +63,12 @@ For extra credit, the user must be aple to:
 
 ## Installation
 
+#### Make Sure to Install / Run
+
+- **Node.js** - Make sure `Node.js` is installed in your machine. If `Node.js` is not installed on your machine, [click here](https://nodejs.org/en/) to download the application.
+- **NPM Install** - The `package.json` file included in this repo already lists all Node modules, NPM packages, and other dependencies that are required to successfully run this application.
+  - Please make sure to run the `NPM install` in the root directory to access the following three NPM packages: (a) [MySQL](https://www.npmjs.com/package/mysql), (b) [InquirerJs](https://www.npmjs.com/package/inquirer/v/0.2.3), and (c) [console.table](https://www.npmjs.com/package/console.table).
+
 ## Final Output
 
 ### Database Schema
