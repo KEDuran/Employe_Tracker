@@ -1,18 +1,13 @@
--- Drops the animals_db if it exists currently --
-DROP DATABASE IF EXISTS animals_db;
--- Creates the "animals_db" database --
-CREATE DATABASE animals_db;
--- hey my comment is here!
--- Makes it so all of the following code will affect animals_db --
-USE animals_db;
--- Creates the table "people" within animals_db --
-CREATE TABLE people (
+-- Drops the employee_db if it exists currently --
+DROP DATABASE IF EXISTS employee_db;
+-- Creates the "employee_db" database --
+CREATE DATABASE employee_db;
+
+-- Ensures that the query that follows will use employee_db --
+USE employee_db;
+-- Creates the table "department" within employee_db --
+CREATE TABLE department (
+  id integer(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   -- Makes a string column called "name" which cannot contain null --
-  name VARCHAR(10) NOT NULL,
-  -- Makes a boolean column called "has_pet" which cannot contain null --
-  has_pet BOOLEAN NOT NULL,
-  -- Makes a sting column called "pet_name" --
-  pet_name VARCHAR(30),
-  -- Makes an numeric column called "pet_age" --
-  pet_age INTEGER(10)
+  name VARCHAR(30) NOT NULL
 );
