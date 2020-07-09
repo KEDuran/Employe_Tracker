@@ -71,6 +71,8 @@ For extra credit, the user must be aple to:
 
 ## Final Output
 
+This section will be updated once the application is developed.
+
 ### Database Schema
 
 ### Demo of App Functionality
