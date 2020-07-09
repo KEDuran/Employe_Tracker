@@ -17,6 +17,17 @@ CREATE TABLE role (
     id INTEGER(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(30) NOT NULL,
     salary DECIMAL(10,2) NOT NULL,
-    deparment_id INTEGER,
+    deparment_id INTEGER (10),
     FOREIGN KEY (department_id) REFERENCES department(id)
+);
+
+-- Creates the table "employee" within employee_db --
+CREATE TABLE employee (
+    id INTEGER(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(30) NOT NULL,
+    last_name VARCHAR(30) NOT NULL,
+    role_id INTEGER (10),
+    FOREIGN KEY (role_id) REFERENCES role(id),
+    manager_id INTEGER(10),
+    FOREIGN KEY (manager_id) REFERENCES employee(id)
 );
