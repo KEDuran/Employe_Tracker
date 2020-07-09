@@ -5,7 +5,7 @@
 
 ## Description
 
-A command line interface application for managing a database of company employee's using node, inquirer, and MySQL.
+The main goal for this assignment is to build command line interface application that can serve as a content management system (CMS) that an employer can use to keep track of employee information. The CMS must be built using node, inquirer, and MySQL.
 
 ## Table of Contents
 
