@@ -37,3 +37,9 @@ INSERT INTO department (name) values ('Finance');
 INSERT INTO department (name) values ('Sale');
 INSERT INTO department (name) values ('Legal');
 INSERT INTO department (name) values ('Engineering');
+
+-- Inserting sample data into "role" table --
+INSERT INTO role (title, salary) values ('Accountant');
+INSERT INTO role (title, salary) values ('Sales Lead');
+INSERT INTO role (title, salary) values ('Lawyer');
+INSERT INTO role (title, salary) values ('Software Engineer');
