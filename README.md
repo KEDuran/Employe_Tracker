@@ -18,6 +18,8 @@ Please use the table of contents provided below to navigate through the ReadMe.
 
 ## Links for Submission
 
+Links to submission items will be provided once the assignment is complete.
+
 ## Assignment Scope
 
 ### User Story
