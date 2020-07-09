@@ -1,0 +1,1 @@
+// adding root js file for inquirer CLI code
