@@ -43,3 +43,9 @@ INSERT INTO role (title, salary) values ('Accountant');
 INSERT INTO role (title, salary) values ('Sales Lead');
 INSERT INTO role (title, salary) values ('Lawyer');
 INSERT INTO role (title, salary) values ('Software Engineer');
+
+-- Inserting sample data into "employee" table --
+INSERT INTO role (first_name, last_name) values ('Caleb', 'Duran');
+INSERT INTO role (first_name, last_name) values ('Bob', 'Johnson');
+INSERT INTO role (first_name, last_name) values ('JoeAnne','McDonald');
+INSERT INTO role (first_name, last_name) values ('Jared','Hendricks');
