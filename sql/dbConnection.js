@@ -3,7 +3,7 @@ var mysql = require("mysql");
 var connection = mysql.createConnection({
   host: "localhost",
 
-  // Your port; if not 3306
+  // my local MySQL default port
   port: 3306,
 
   // Your username
