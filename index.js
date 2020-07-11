@@ -21,12 +21,10 @@ const introQuestion = [
 			"Add an employee",
 			"Add a new deparmenet",
 			"Add a new employee role",
-			"Update employee's role",
-			"Update employee's manager",
-			"Update employee's department",
+			"Update employee role",
 		],
 		validate: validation,
 	},
 ];
 // Question to trigger update flow
-const updateQuestion = [];
+const updateQuestion = [{}];
