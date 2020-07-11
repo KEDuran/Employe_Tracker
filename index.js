@@ -27,7 +27,7 @@ const introQuestion = [
 	},
 ];
 
-// Question to trigger the add employeeflow
+// Question to trigger the add new employee flow
 const addEmployeeQuestion = [
 	{
 		type: "input",
@@ -69,7 +69,7 @@ const addEmployeeQuestion = [
 	},
 ];
 
-// Question to trigger add role flow
+// Question to trigger add new role flow
 const addRoleQuestion = [
 	{
 		type: "input",
