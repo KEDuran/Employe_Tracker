@@ -20,7 +20,6 @@ var connection = mysql.createConnection({
 // creating the connection to the employee_db database
 connection.connect(function (err) {
 	if (err) throw err;
-	// console.log("connected as id " + connection.threadId);
 });
 
 // Function to validaate that each questions is entered.
@@ -143,7 +142,7 @@ function viewAllEmployees() {
 		function (err, res, field) {
 			if (err) throw err;
 			console.table(res);
-			connection.end();
+			inquirer.prompt(introQuestion).then(answerChoices);
 		}
 	);
 }
@@ -153,7 +152,7 @@ function viewAllDepartments() {
 	connection.query("SELECT * FROM department;", function (err, res, field) {
 		if (err) throw err;
 		console.table(res);
-		connection.end();
+		inquirer.prompt(introQuestion).then(answerChoices);
 	});
 }
 
@@ -162,17 +161,23 @@ function viewAllRoles() {
 	connection.query("SELECT * FROM role;", function (err, res, field) {
 		if (err) throw err;
 		console.table(res);
-		connection.end();
+		inquirer.prompt(introQuestion).then(answerChoices);
 	});
 }
 
-// start inquirer prompt for employee questions
-inquirer.prompt(introQuestion).then((answer) => {
+// function to store logic for answer choices
+function answerChoices(answer) {
 	if (answer.intro === "View all employees") {
 		viewAllEmployees();
 	} else if (answer.intro === "View all departments") {
 		viewAllDepartments();
 	} else if (answer.intro === "View all roles") {
 		viewAllRoles();
+	} else if (answer.intro === "Exit application") {
+		connection.end();
+		return;
 	}
-});
+}
+
+// start inquirer prompt for employee questions
+inquirer.prompt(introQuestion).then(answerChoices);
