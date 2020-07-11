@@ -1,1 +1,1 @@
-// adding root js file for inquirer CLI code
+const inquirer = require("inquirer");
