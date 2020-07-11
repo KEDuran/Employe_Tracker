@@ -161,5 +161,7 @@ function viewAllRoles() {
 inquirer.prompt(introQuestion).then((answer) => {
 	if (answer.intro === "View all employees") {
 		viewAllEmployees();
+	} else if (answer.intro === "View all roles") {
+		viewAllRoles();
 	}
 });
