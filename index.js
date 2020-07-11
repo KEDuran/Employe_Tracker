@@ -24,5 +24,6 @@ const intro = [
 			"Update employee's manager",
 			"Update employee's department",
 		],
+		validate: validation,
 	},
 ];
