@@ -69,6 +69,9 @@ const addEmployeeQuestion = [
 	},
 ];
 
+// Question to trigger add role flow
+const addRoleQuestion = [];
+
 // Question to trigger update employee flow
 const updateEmployeeQuestion = [
 	{
@@ -86,5 +89,3 @@ const updateEmployeeQuestion = [
 		},
 	},
 ];
-// Question to trigger add role flow
-const addRoleQuestion = [];
