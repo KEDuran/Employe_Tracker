@@ -110,3 +110,5 @@ const updateEmployeeRoleQuestion = [
 		},
 	},
 ];
+
+// Function to view all employees
