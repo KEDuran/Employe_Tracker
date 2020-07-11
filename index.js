@@ -70,7 +70,14 @@ const addEmployeeQuestion = [
 ];
 
 // Question to trigger add role flow
-const addRoleQuestion = [];
+const addRoleQuestion = [
+	{
+		type: "input",
+		name: "newRole",
+		message: "Please enter the title of the new role.",
+		validate: validation,
+	},
+];
 
 // Question to trigger update employee flow
 const updateEmployeeQuestion = [
