@@ -1,8 +1,27 @@
 const inquirer = require("inquirer");
 const cTable = require("console.table");
-const dbConnection = require("./sql/dbConnection.js");
 const fs = require("fs");
 const path = require("path");
+const mysql = require("mysql");
+// establish server connection configuration
+var connection = mysql.createConnection({
+	host: "localhost",
+
+	// my local MySQL default port
+	port: 3306,
+
+	// username
+	user: "root",
+
+	// password
+	password: "server_password",
+	database: "employee_db",
+});
+// creating the connection to the employee_db database
+connection.connect(function (err) {
+	if (err) throw err;
+	// console.log("connected as id " + connection.threadId);
+});
 
 // Function to validaate that each questions is entered.
 function validation() {
@@ -114,9 +133,25 @@ const updateEmployeeRoleQuestion = [
 
 // Function to view all employees
 function viewAllEmployees() {
-	connection.query("CALL view_all_employees()", function (err, res) {
-		if (err) throw err;
-		console.log(res);
-		connection.end();
-	});
+	connection.query(
+		`SELECT employee.id, employee.first_name, employee.last_name, role.title,
+		department.name AS department,role.salary,CONCAT(a.first_name, " ", a.last_name) AS manager
+		FROM employee
+		LEFT JOIN role ON employee.role_id = role.id
+		LEFT JOIN department ON role.id = department.id
+		LEFT JOIN employee a ON a.id = employee.manager_id;`,
+		function (err, res, field) {
+			var employeeStoredData = [];
+			if (err) throw err;
+			console.table(res);
+			connection.end();
+		}
+	);
 }
+
+// start inquirer prompt for employee questions
+inquirer.prompt(introQuestion).then((answer) => {
+	if (answer.intro === "View all employees") {
+		viewAllEmployees();
+	}
+});
