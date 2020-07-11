@@ -26,6 +26,17 @@ const introQuestion = [
 		validate: validation,
 	},
 ];
+
+// Question to trigger the add flow
+const addEmployeeQuestion = [
+	{
+		type: "input",
+		name: "firstName",
+		message: "Please enter employee's first name.",
+		validate: validation,
+	},
+];
+
 // Question to trigger update flow
 const updateQuestion = [
 	{
