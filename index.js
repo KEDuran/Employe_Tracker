@@ -9,7 +9,7 @@ function validation() {
 	}
 }
 // Intro question to kick-off the application flow
-const intro = [
+const introQuestion = [
 	{
 		type: "list",
 		name: "intro",
@@ -29,4 +29,4 @@ const intro = [
 	},
 ];
 // Question to trigger update flow
-const update = [];
+const updateQuestion = [];
