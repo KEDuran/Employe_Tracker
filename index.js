@@ -134,8 +134,21 @@ const updateEmployeeRoleQuestion = [
 // Function to view all employees
 function viewAllEmployees() {
 	connection.query("CALL view_all_employees()", function (err, res) {
+		var employeeStoredData = [];
 		if (err) throw err;
-		console.table(res);
+		for (var i = 0; i < res.length; i++) {
+			var employeeObject = {
+				id: res[i][0],
+				first_name: res[i][1],
+				last_name: res[i][2],
+				title: res[i][3],
+				department: res[i][4],
+				salary: res[i][5],
+				manager: res[i][6],
+			};
+			employeeStoredData.push(employeeObject);
+		}
+		console.table(employeeStoredData);
 	});
 }
 
