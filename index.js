@@ -116,7 +116,14 @@ const updateEmployeeRoleQuestion = [
 function viewAllEmployees() {
 	connection.query("CALL view_all_employees()", function (err, res) {
 		if (err) throw err;
-		console.log(res);
+		console.table(res);
 		connection.end();
 	});
 }
+
+// start inquirer prompt for employee questions
+inquirer.prompt(introQuestion).then((answer) => {
+	if (answer.intro === "View all employees") {
+		viewAllEmployees();
+	}
+});
