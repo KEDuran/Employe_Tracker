@@ -141,7 +141,6 @@ function viewAllEmployees() {
 		LEFT JOIN department ON role.id = department.id
 		LEFT JOIN employee a ON a.id = employee.manager_id;`,
 		function (err, res, field) {
-			var employeeStoredData = [];
 			if (err) throw err;
 			console.table(res);
 			connection.end();
@@ -149,9 +148,20 @@ function viewAllEmployees() {
 	);
 }
 
+// Function to view all roles
+function viewAllRoles() {
+	connection.query("SELECT * FROM role;", function (err, res, field) {
+		if (err) throw err;
+		console.table(res);
+		connection.end();
+	});
+}
+
 // start inquirer prompt for employee questions
 inquirer.prompt(introQuestion).then((answer) => {
 	if (answer.intro === "View all employees") {
 		viewAllEmployees();
+	} else if (answer.intro === "View all roles") {
+		viewAllRoles();
 	}
 });
