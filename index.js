@@ -1,4 +1,5 @@
 const inquirer = require("inquirer");
+const cTable = require("console.table");
 
 // Function to validaate that each questions is entered.
 function validation() {
