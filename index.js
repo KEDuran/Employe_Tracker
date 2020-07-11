@@ -144,6 +144,7 @@ function viewAllEmployees() {
 			if (err) throw err;
 			console.table(res);
 			connection.end();
+			inquirer.prompt(introQuestion).then(answerChoices);
 		}
 	);
 }
@@ -154,6 +155,7 @@ function viewAllDepartments() {
 		if (err) throw err;
 		console.table(res);
 		connection.end();
+		inquirer.prompt(introQuestion).then(answerChoices);
 	});
 }
 
@@ -163,16 +165,22 @@ function viewAllRoles() {
 		if (err) throw err;
 		console.table(res);
 		connection.end();
+		inquirer.prompt(introQuestion).then(answerChoices);
 	});
 }
 
-// start inquirer prompt for employee questions
-inquirer.prompt(introQuestion).then((answer) => {
+// function to store logic for answer choices
+function answerChoices(answer) {
 	if (answer.intro === "View all employees") {
 		viewAllEmployees();
 	} else if (answer.intro === "View all departments") {
 		viewAllDepartments();
 	} else if (answer.intro === "View all roles") {
 		viewAllRoles();
+	} else if (answer.intro === "Exit application") {
+		return;
 	}
-});
+}
+
+// start inquirer prompt for employee questions
+inquirer.prompt(introQuestion).then(answerChoices);
