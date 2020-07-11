@@ -20,7 +20,7 @@ var connection = mysql.createConnection({
 // creating the connection to the employee_db database
 connection.connect(function (err) {
 	if (err) throw err;
-	console.log("connected as id " + connection.threadId);
+	// console.log("connected as id " + connection.threadId);
 });
 
 // Function to validaate that each questions is entered.
