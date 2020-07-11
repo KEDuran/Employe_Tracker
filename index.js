@@ -1,5 +1,13 @@
 const inquirer = require("inquirer");
 
+function validation() {
+	if (value != "") {
+		return true;
+	} else {
+		return "Please answer the question.";
+	}
+}
+
 const intro = [
 	{
 		type: "list",
