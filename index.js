@@ -113,9 +113,9 @@ const updateEmployeeRoleQuestion = [
 
 // Function to view all employees
 function viewAllEmployees() {
-	connection.query("SELECT * FROM products", function(err, res) {
-	  if (err) throw err;
-	  console.log(res);
-	  connection.end();
+	connection.query("EXEC view_all_employees", function (err, res) {
+		if (err) throw err;
+		console.log(res);
+		connection.end();
 	});
-  }
+}
