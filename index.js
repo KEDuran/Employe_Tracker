@@ -1,4 +1,8 @@
 const inquirer = require("inquirer");
+const cTable = require("console.table");
+const dbConnection = require("./sql/dbConnection.js");
+const fs = require("fs");
+const path = require("path");
 
 // Function to validaate that each questions is entered.
 function validation() {
@@ -107,3 +111,12 @@ const updateEmployeeRoleQuestion = [
 		},
 	},
 ];
+
+// Function to view all employees
+function viewAllEmployees() {
+	connection.query("CALL view_all_employees()", function (err, res) {
+		if (err) throw err;
+		console.log(res);
+		connection.end();
+	});
+}
