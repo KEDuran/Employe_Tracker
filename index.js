@@ -22,6 +22,7 @@ const introQuestion = [
 			"Add a new deparmenet",
 			"Add a new employee role",
 			"Update employee role",
+			"Exit application",
 		],
 		validate: validation,
 	},
