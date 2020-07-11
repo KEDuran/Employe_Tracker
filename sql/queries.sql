@@ -2,8 +2,12 @@
 USE employee_db;
 
 -- query to view all employee table data
-CREATE PROCEDURE view_all_employees
-AS
+DELIMITER //
+
+CREATE PROCEDURE view_all_employees()
+
+BEGIN
+
 SELECT 
 employee.id, 
 employee.first_name,
@@ -16,8 +20,9 @@ CONCAT(a.first_name, " ", a.last_name) AS manager
 FROM employee
 LEFT JOIN role ON employee.role_id = role.id
 LEFT JOIN department ON role.id = department.id
-LEFT JOIN employee a ON a.id = employee.manager_id
-GO;
+LEFT JOIN employee a ON a.id = employee.manager_id;
+
+END//
 
 -- query to select all department table data
 CREATE PROCEDURE view_all_departments
