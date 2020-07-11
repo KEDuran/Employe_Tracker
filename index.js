@@ -35,6 +35,12 @@ const addEmployeeQuestion = [
 		message: "Please enter employee's first name.",
 		validate: validation,
 	},
+	{
+		type: "input",
+		name: "lastName",
+		message: "Please enter employee's last name.",
+		validate: validation,
+	},
 ];
 
 // Question to trigger update flow
