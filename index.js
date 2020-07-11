@@ -8,7 +8,7 @@ function validation() {
 		return "Please answer the question.";
 	}
 }
-// Intro question that will kick-off the application functionality
+// Intro question to kick-off the application flow
 const intro = [
 	{
 		type: "list",
@@ -28,3 +28,5 @@ const intro = [
 		validate: validation,
 	},
 ];
+// Question to trigger update flow
+const update = [];
