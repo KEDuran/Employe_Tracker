@@ -148,6 +148,15 @@ function viewAllEmployees() {
 	);
 }
 
+// Function to view all departments
+function viewAllDepartments() {
+	connection.query("SELECT * FROM department;", function (err, res, field) {
+		if (err) throw err;
+		console.table(res);
+		connection.end();
+	});
+}
+
 // Function to view all roles
 function viewAllRoles() {
 	connection.query("SELECT * FROM role;", function (err, res, field) {
@@ -161,6 +170,8 @@ function viewAllRoles() {
 inquirer.prompt(introQuestion).then((answer) => {
 	if (answer.intro === "View all employees") {
 		viewAllEmployees();
+	} else if (answer.intro === "View all departments") {
+		viewAllDepartments();
 	} else if (answer.intro === "View all roles") {
 		viewAllRoles();
 	}
