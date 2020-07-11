@@ -24,5 +24,10 @@ SELECT * FROM department;
 SELECT * FROM role;
 
 -- query for all managers
+SELECT
+CONCAT(employee.first_name, " ", employee.last_name) as manager
+FROM employee
+WHERE employee.manager_id IS NULL;
+
 -- query to get all roles with corresponding departments
--- insert query to insert new employee info
+-- insert query to insert new employee
