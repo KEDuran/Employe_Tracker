@@ -38,13 +38,40 @@ const addEmployeeQuestion = [
 	{
 		type: "input",
 		name: "lastName",
-		message: "Please enter employee's last name.",
+        message: "Please enter employee's last name.",
+        choices:
 		validate: validation,
+    },
+    {
+		type: "list",
+		name: "employeeRole",
+        message: "Please select the new employee's role.",
+        choices: function () {
+			var employeeRole = [];
+			for (var i = 0; i < results.length; i++) {
+				employeeRole.push(
+					`${results[i].role}`
+				);
+			}
+			return employeeChoices;
+		},
+    },
+    {
+		type: "list",
+		name: "employeeManager",
+        message: "Please select the new employee's manager.",
+        choices: function () {
+			var employeeMananger = [];
+			for (var i = 0; i < results.length; i++) {
+				employeeManager.push(
+					`${results[i].first_name} ${results[i].last_name}`)
+			return employeeMananger;
+		},
 	},
 ];
 
 // Question to trigger update flow
-const updateQuestion = [
+cons updateQuestion = [
 	{
 		type: "list",
 		name: "updateRole",
@@ -58,6 +85,5 @@ const updateQuestion = [
 			}
 			return employeeChoices;
 		},
-		validate: validation,
 	},
 ];
