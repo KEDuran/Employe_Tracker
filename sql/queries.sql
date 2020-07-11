@@ -9,7 +9,7 @@ employee.last_name,
 role.title,
 department.name AS department,
 role.salary,
-employee.manager_id
+employee.manager_id AS manager
 
 FROM employee
 LEFT JOIN role ON employee.role_id = role.id
