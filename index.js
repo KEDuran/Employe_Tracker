@@ -132,7 +132,7 @@ const updateEmployeeRoleQuestion = [
 ];
 
 // Function to view all employees
-function viewAllEmployees() {
+async function viewAllEmployees() {
 	connection.query(
 		`SELECT employee.id, employee.first_name, employee.last_name, role.title,
 		department.name AS department,role.salary,CONCAT(a.first_name, " ", a.last_name) AS manager
@@ -149,7 +149,7 @@ function viewAllEmployees() {
 }
 
 // Function to view all departments
-function viewAllDepartments() {
+async function viewAllDepartments() {
 	connection.query("SELECT * FROM department;", function (err, res, field) {
 		if (err) throw err;
 		console.table(res);
@@ -158,7 +158,7 @@ function viewAllDepartments() {
 }
 
 // Function to view all roles
-function viewAllRoles() {
+async function viewAllRoles() {
 	connection.query("SELECT * FROM role;", function (err, res, field) {
 		if (err) throw err;
 		console.table(res);
@@ -169,10 +169,10 @@ function viewAllRoles() {
 // start inquirer prompt for employee questions
 inquirer.prompt(introQuestion).then((answer) => {
 	if (answer.intro === "View all employees") {
-		viewAllEmployees();
+		await viewAllEmployees();
 	} else if (answer.intro === "View all departments") {
-		viewAllDepartments();
+		await viewAllDepartments();
 	} else if (answer.intro === "View all roles") {
-		viewAllRoles();
+		await viewAllRoles();
 	}
 });
