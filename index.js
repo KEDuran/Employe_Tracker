@@ -133,23 +133,27 @@ const updateEmployeeRoleQuestion = [
 
 // Function to view all employees
 function viewAllEmployees() {
-	connection.query("CALL view_all_employees()", function (err, res) {
-		var employeeStoredData = [];
-		if (err) throw err;
-		for (var i = 0; i < res.length; i++) {
-			var employeeObject = {
-				id: res[i][0],
-				first_name: res[i][1],
-				last_name: res[i][2],
-				title: res[i][3],
-				department: res[i][4],
-				salary: res[i][5],
-				manager: res[i][6],
-			};
-			employeeStoredData.push(employeeObject);
+	connection.query(
+		`SELECT 
+	employee.id, 
+	employee.first_name,
+	employee.last_name,
+	role.title,
+	department.name AS department,
+	role.salary,
+	CONCAT(a.first_name, " ", a.last_name) AS manager
+	
+	FROM employee
+	LEFT JOIN role ON employee.role_id = role.id
+	LEFT JOIN department ON role.id = department.id
+	LEFT JOIN employee a ON a.id = employee.manager_id;`,
+		function (err, res, field) {
+			var employeeStoredData = [];
+			if (err) throw err;
+			console.table(res);
+			connection.end();
 		}
-		console.table(employeeStoredData);
-	});
+	);
 }
 
 // start inquirer prompt for employee questions
