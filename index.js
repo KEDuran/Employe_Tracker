@@ -1,7 +1,11 @@
 const inquirer = require("inquirer");
 const cTable = require("console.table");
 const dbConnection = require("./sql/dbConnection.js");
+const fs = require("fs");
+const path = require("path");
+
 const dbSeed = require("./sql/dbSeed.sql");
+const dbSeed = require("./sql/queries.sql");
 
 // Function to validaate that each questions is entered.
 function validation() {
