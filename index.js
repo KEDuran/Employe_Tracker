@@ -4,8 +4,9 @@ const dbConnection = require("./sql/dbConnection.js");
 const fs = require("fs");
 const path = require("path");
 
-const dbSeed = require("./sql/dbSeed.sql");
-const dbSeed = require("./sql/queries.sql");
+const SQL_DIR = path.resolve(__dirname, "sql");
+const dbSeedPath = path.join(SQL_DIR, "dbSeed.sql");
+const queriesPath = path.join(SQL_DIR, "queries.sql");
 
 // Function to validaate that each questions is entered.
 function validation() {
