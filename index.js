@@ -27,4 +27,20 @@ const introQuestion = [
 	},
 ];
 // Question to trigger update flow
-const updateQuestion = [{}];
+const updateQuestion = [
+	{
+		type: "list",
+		name: "updateRole",
+		message: "Which employee would you like to update?",
+		choices: function () {
+			var employeeChoices = [];
+			for (var i = 0; i < results.length; i++) {
+				employeeChoices.push(
+					`${results[i].first_name} ${results[i].last_name}`
+				);
+			}
+			return employeeChoices;
+		},
+		validate: validation,
+	},
+];
