@@ -23,3 +23,6 @@ SELECT * FROM department;
 -- query to select all role table data
 SELECT * FROM role;
 
+-- query for all managers
+-- query to get all roles with corresponding departments
+-- insert query to insert new employee info
