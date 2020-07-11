@@ -148,6 +148,15 @@ function viewAllEmployees() {
 	);
 }
 
+// Function to view all departments
+function viewAllDepartments() {
+	connection.query("SELECT * FROM department;", function (err, res, field) {
+		if (err) throw err;
+		console.table(res);
+		connection.end();
+	});
+}
+
 // Function to view all roles
 function viewAllRoles() {
 	connection.query("SELECT * FROM role;", function (err, res, field) {
@@ -157,14 +166,7 @@ function viewAllRoles() {
 	});
 }
 
-// Function to view all departments
-function viewAllDepartments() {
-	connection.query("SELECT * FROM department;", function (err, res, field) {
-		if (err) throw err;
-		console.table(res);
-		connection.end();
-	});
-}
+
 
 // start inquirer prompt for employee questions
 inquirer.prompt(introQuestion).then((answer) => {
