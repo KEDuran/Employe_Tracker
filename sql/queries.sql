@@ -20,8 +20,13 @@ LEFT JOIN employee a ON a.id = employee.manager_id
 GO;
 
 -- query to select all department table data
-
-SELECT * FROM department;
+CREATE PROCEDURE view_all_departments
+AS
+SELECT * FROM department
+GO;
 
 -- query to select all role table data
-SELECT * FROM role; 
+CREATE PROCEDURE view_all_roles
+AS
+SELECT * FROM role
+GO;
