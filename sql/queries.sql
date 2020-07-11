@@ -1,6 +1,7 @@
--- query to view all employee data
+-- making sure all queries below pull from employee_db
 USE employee_db;
 
+-- query to view all employee data
 SELECT 
 employee.id, 
 employee.first_name,
@@ -15,6 +16,5 @@ LEFT JOIN role ON employee.role_id = role.id
 LEFT JOIN department ON role.id = department.id;
 
 -- query to select all department data
-USE employee_db;
 
 SELECT * FROM department;
