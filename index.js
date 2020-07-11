@@ -1,5 +1,6 @@
 const inquirer = require("inquirer");
 const cTable = require("console.table");
+const dbConnection = require("./sql/dbConnection.js");
 
 // Function to validaate that each questions is entered.
 function validation() {
