@@ -157,6 +157,15 @@ function viewAllRoles() {
 	});
 }
 
+// Function to view all departments
+function viewAllDepartments() {
+	connection.query("SELECT * FROM department;", function (err, res, field) {
+		if (err) throw err;
+		console.table(res);
+		connection.end();
+	});
+}
+
 // start inquirer prompt for employee questions
 inquirer.prompt(introQuestion).then((answer) => {
 	if (answer.intro === "View all employees") {
