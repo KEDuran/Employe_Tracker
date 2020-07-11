@@ -9,11 +9,12 @@ employee.last_name,
 role.title,
 department.name AS department,
 role.salary,
-employee.manager_id AS manager
+CONCAT(a.first_name, " ", a.last_name) AS manager
 
 FROM employee
 LEFT JOIN role ON employee.role_id = role.id
-LEFT JOIN department ON role.id = department.id;
+LEFT JOIN department ON role.id = department.id
+LEFT JOIN employee a ON a.id = employee.manager_id;
 
 -- query to select all department table data
 
