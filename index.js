@@ -90,7 +90,7 @@ const addDepartmentQuestion = [
 ];
 
 // Question to trigger update employee flow
-const updateEmployeeQuestion = [
+const updateEmployeeRoleQuestion = [
 	{
 		type: "list",
 		name: "updateRole",
