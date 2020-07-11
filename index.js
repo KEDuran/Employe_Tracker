@@ -1,5 +1,6 @@
 const inquirer = require("inquirer");
 
+// Function to validaate that each questions is entered.
 function validation() {
 	if (value != "") {
 		return true;
@@ -7,7 +8,7 @@ function validation() {
 		return "Please answer the question.";
 	}
 }
-
+// Intro question that will kick-off the application functionality
 const intro = [
 	{
 		type: "list",
