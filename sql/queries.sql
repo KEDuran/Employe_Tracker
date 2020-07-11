@@ -36,7 +36,12 @@ SELECT * FROM department;
 END//
 
 -- query to select all role table data
-CREATE PROCEDURE view_all_roles
-AS
-SELECT * FROM role
-GO;
+DELIMITER //
+
+CREATE PROCEDURE view_all_roles ()
+
+BEGIN
+
+SELECT * FROM role;
+
+END//
