@@ -21,7 +21,6 @@ var connection = mysql.createConnection({
 connection.connect(function (err) {
 	if (err) throw err;
 	console.log("connected as id " + connection.threadId);
-	connection.end();
 });
 
 // Function to validaate that each questions is entered.
@@ -137,7 +136,6 @@ function viewAllEmployees() {
 	connection.query("CALL view_all_employees()", function (err, res) {
 		if (err) throw err;
 		console.table(res);
-		connection.end();
 	});
 }
 
