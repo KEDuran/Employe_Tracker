@@ -114,7 +114,10 @@ const updateEmployeeRoleQuestion = [
 
 // Function to view all employees
 function viewAllEmployees() {
-	connection.query("CALL view_all_employees()", function (err, res) {
+	dbConnection.connection.query("CALL view_all_employees()", function (
+		err,
+		res
+	) {
 		if (err) throw err;
 		console.table(res);
 		connection.end();
