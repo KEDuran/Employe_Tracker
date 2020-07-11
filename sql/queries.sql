@@ -30,5 +30,10 @@ CONCAT(employee.first_name, " ", employee.last_name) as manager
 FROM employee
 WHERE employee.manager_id IS NULL;
 
--- query to get all roles with corresponding departments
+ -- query to get all roles with corresponding departments
+ SELECT
+ role.id,
+ role.title
+ FROM role
+ 
 -- insert query to insert new employee
