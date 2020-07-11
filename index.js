@@ -149,6 +149,9 @@ function viewAllEmployees() {
 	);
 }
 
+// Function to view all roles
+function viewAllRoles() {}
+
 // start inquirer prompt for employee questions
 inquirer.prompt(introQuestion).then((answer) => {
 	if (answer.intro === "View all employees") {
