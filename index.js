@@ -453,5 +453,14 @@ function answerChoices(answer) {
 	}
 }
 
+// added intro heading to the application
+console.log(
+	`+----------------------------+
+| Employee Tracker v1.0      |
+|----------------------------|
+| By: Krystal Duran - 2020   |
++----------------------------+`
+);
+
 // start inquirer prompt for employee questions
 inquirer.prompt(introQuestion).then(answerChoices);
