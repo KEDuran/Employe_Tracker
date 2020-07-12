@@ -312,7 +312,7 @@ function addNewEmployeeRole() {
 				);
 			});
 		};
-		var departmentID = await prompiseWrapper1();
+		var departmentID = await promiseWrapper1();
 		// connection query that will insert new employee role
 		connection.query(
 			`INSERT INTO role (title, salary, department.id) 
