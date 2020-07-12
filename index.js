@@ -227,7 +227,7 @@ const updateEmployeeRoleQuestion = [
 	},
 	{
 		type: "list",
-		name: "updateDeparment",
+		name: "updateDepartment",
 		message:
 			"Please select new department for this role. If no change needed, select current department.",
 		choices: async function () {
