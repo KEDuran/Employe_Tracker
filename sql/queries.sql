@@ -55,5 +55,10 @@ VALUES (?);
 -- insert query to add new department
 INSERT INTO department (name) VALUES (?);
 
--- inserr query to add new employee role
+-- insert query to add new employee role
 INSERT INTO role (title, salary, department_id) VALUES (?)
+
+-- update query used to update employee role information
+UPDATE role
+SET role.title = (?), role.salary =  (?), role.department_id = (?)
+WHERE role.id = (?);

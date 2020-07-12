@@ -182,15 +182,73 @@ const updateEmployeeRoleQuestion = [
 	{
 		type: "list",
 		name: "updateRole",
-		message: "Which employee would you like to update?",
-		choices: function () {
-			var employeeChoices = [];
-			for (var i = 0; i < results.length; i++) {
-				employeeChoices.push(
-					`${results[i].first_name} ${results[i].last_name}`
-				);
+		message: "Which role would you like to update?",
+		choices: async function () {
+			var employeeRole = [];
+			var promiseWrapper = function () {
+				return new Promise((resolve) => {
+					connection.query(`SELECT role.title FROM role`, function (
+						err,
+						res,
+						field
+					) {
+						if (err) throw err;
+						for (var i = 0; i < res.length; i++) {
+							employeeRole.push(`${res[i].title}`);
+						}
+						resolve("resolved");
+					});
+				});
+			};
+			await promiseWrapper();
+			return employeeRole;
+		},
+	},
+	{
+		type: "input",
+		name: "updateTitle",
+		message:
+			"Please enter new title for this role. If no change needed, enter current title.",
+		validate: validation,
+	},
+	{
+		type: "input",
+		name: "updateSalary",
+		message:
+			"Please enter new salary amount for this role. If no change needed, enter in current salary.",
+		validate: function (value) {
+			var salary = parseInt(value);
+			if (!salary || salary < 0) {
+				return "Please enter a valid salary amount.";
+			} else {
+				return true;
 			}
-			return employeeChoices;
+		},
+	},
+	{
+		type: "list",
+		name: "updateDepartment",
+		message:
+			"Please select new department for this role. If no change needed, select current department.",
+		choices: async function () {
+			var departmentChocies = [];
+			var promiseWrapper = function () {
+				return new Promise((resolve) => {
+					connection.query(`SELECT department.name FROM department`, function (
+						err,
+						res,
+						field
+					) {
+						if (err) throw err;
+						for (var i = 0; i < res.length; i++) {
+							departmentChocies.push(`${res[i].name}`);
+						}
+						resolve("resolved");
+					});
+				});
+			};
+			await promiseWrapper();
+			return departmentChocies;
 		},
 	},
 ];
@@ -325,6 +383,54 @@ function addNewEmployeeRole() {
 	});
 }
 
+// Function to update a existing employee role
+function updateEmployeeRole() {
+	inquirer.prompt(updateEmployeeRoleQuestion).then(async function (answers) {
+		var selectedUpdateRole = answers.updateRole;
+		var selectedUpdateTitle = answers.updateTitle;
+		var selectedUpdateSalary = answers.updateSalary;
+		var selectedUpdateDepartment = answers.updateDepartment;
+
+		// Extracting the role id for a given role title using async await
+		var promiseWrapper1 = function () {
+			return new Promise((resolve) => {
+				connection.query(
+					`SELECT role.id FROM role WHERE role.title = '${selectedUpdateRole}';`,
+					function (err, res, field) {
+						if (err) throw err;
+						resolve(res[0].id);
+					}
+				);
+			});
+		};
+		var roleID = await promiseWrapper1();
+
+		// Extracting the department id for a given department title using async await
+		var promiseWrapper2 = function () {
+			return new Promise((resolve) => {
+				connection.query(
+					`SELECT department.id FROM department WHERE department.name = '${selectedUpdateDepartment}';`,
+					function (err, res, field) {
+						if (err) throw err;
+						resolve(res[0].id);
+					}
+				);
+			});
+		};
+		var departmentID = await promiseWrapper2();
+		// connection query that will update an employee role based on user selection
+		connection.query(
+			`UPDATE role
+			SET role.title = '${selectedUpdateTitle}', role.salary = ${selectedUpdateSalary}, role.department_id = ${departmentID}
+			WHERE role.id = ${roleID};`,
+			function (err, res, field) {
+				if (err) throw err;
+				inquirer.prompt(introQuestion).then(answerChoices);
+			}
+		);
+	});
+}
+
 // function to store logic for answer choices
 function answerChoices(answer) {
 	if (answer.intro === "View all employees") {
@@ -339,6 +445,8 @@ function answerChoices(answer) {
 		addNewDepartment();
 	} else if (answer.intro === "Add an employee role") {
 		addNewEmployeeRole();
+	} else if (answer.intro === "Update employee role") {
+		updateEmployeeRole();
 	} else if (answer.intro === "Exit application") {
 		connection.end();
 		return;
