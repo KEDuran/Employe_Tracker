@@ -266,7 +266,7 @@ function answerChoices(answer) {
 		viewAllRoles();
 	} else if (answer.intro === "Add an employee") {
 		addNewEmployee();
-	} else if (answers.intro === "Add a department") {
+	} else if (answer.intro === "Add a department") {
 		addNewDepartment();
 	} else if (answer.intro === "Exit application") {
 		connection.end();
