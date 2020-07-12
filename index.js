@@ -68,18 +68,25 @@ const addEmployeeQuestion = [
 		type: "list",
 		name: "employeeRole",
 		message: "Please select the employee's role.",
-		choices: function () {
+		choices: async function () {
 			var employeeRole = [];
-			connection.query(`SELECT role.title FROM role`, function (
-				err,
-				res,
-				field
-			) {
-				if (err) throw err;
-				for (var i = 0; i < res.length; i++) {
-					employeeRole.push(`${res[i].title}`);
-				}
-			});
+			function promiseWrapper() {
+				return new Promise((resolve) => {
+					connection.query(`SELECT role.title FROM role`, function (
+						err,
+						res,
+						field
+					) {
+						if (err) throw err;
+						for (var i = 0; i < res.length; i++) {
+							employeeRole.push(`${res[i].title}`);
+						}
+						resolve("resolved");
+					});
+				});
+			};
+
+			await promiseWrapper();
 			return employeeRole;
 		},
 	},
