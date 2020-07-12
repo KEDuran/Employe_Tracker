@@ -23,7 +23,7 @@ connection.connect(function (err) {
 });
 
 // Function to validaate that each questions is entered.
-function validation() {
+function validation(value) {
 	if (value != "") {
 		return true;
 	} else {
@@ -67,27 +67,54 @@ const addEmployeeQuestion = [
 	{
 		type: "list",
 		name: "employeeRole",
-		message: "Please select the new employee's role.",
-		choices: function () {
+		message: "Please select the employee's role.",
+		choices: async function () {
 			var employeeRole = [];
-			for (var i = 0; i < results.length; i++) {
-				employeeRole.push(`${results[i].role}`);
-			}
-			return employeeChoices;
+			var promiseWrapper = function () {
+				return new Promise((resolve) => {
+					connection.query(`SELECT role.title FROM role`, function (
+						err,
+						res,
+						field
+					) {
+						if (err) throw err;
+						for (var i = 0; i < res.length; i++) {
+							employeeRole.push(`${res[i].title}`);
+						}
+						resolve("resolved");
+					});
+				});
+			};
+			await promiseWrapper();
+			return employeeRole;
 		},
 	},
 	{
 		type: "list",
 		name: "employeeManager",
-		message: "Please select the new employee's manager.",
-		choices: function () {
-			var employeeMananger = [];
-			for (var i = 0; i < results.length; i++) {
-				employeeManager.push(
-					`${results[i].first_name} ${results[i].last_name}`
-				);
-				return employeeMananger;
-			}
+		message: "Please select the employee's manager.",
+		choices: async function () {
+			var employeeManager = [];
+			var promiseWrapper = function () {
+				return new Promise((resolve) => {
+					connection.query(
+						`SELECT
+						employee.id,
+						CONCAT(employee.first_name, " ", employee.last_name) as manager
+						FROM employee
+						WHERE employee.manager_id IS NULL;`,
+						function (err, res, field) {
+							if (err) throw err;
+							for (var i = 0; i < res.length; i++) {
+								employeeManager.push(`${res[i].manager}`);
+							}
+							resolve("resolved");
+						}
+					);
+				});
+			};
+			await promiseWrapper();
+			return employeeManager;
 		},
 	},
 ];
@@ -165,6 +192,56 @@ function viewAllRoles() {
 	});
 }
 
+// Function to add a new employee
+function addNewEmployee() {
+	inquirer.prompt(addEmployeeQuestion).then(async function (answers) {
+		var fName = answers.firstName;
+		var lName = answers.lastName;
+		var selectedRole = answers.employeeRole;
+		var selectedManager = answers.employeeManager;
+		// Extracting the role id for a given role title using async await
+		var promiseWrapper1 = function () {
+			return new Promise((resolve) => {
+				connection.query(
+					`SELECT role.id FROM role WHERE role.title = '${selectedRole}';`,
+					function (err, res, field) {
+						if (err) throw err;
+						resolve(res[0].id);
+					}
+				);
+			});
+		};
+		// roleId variable that will be applies when adding an employee
+		var roleId = await promiseWrapper1();
+
+		// Extracting the manager id for a given manager
+		var promiseWrapper2 = function () {
+			return new Promise((resolve) => {
+				connection.query(
+					`SELECT employee.id FROM employee
+					WHERE CONCAT(employee.first_name, " ", employee.last_name) = '${selectedManager}';`,
+					function (err, res, field) {
+						if (err) throw err;
+						resolve(res[0].id);
+					}
+				);
+			});
+		};
+		// mangerId variable that will be applies when adding an employee
+		var managerId = await promiseWrapper2();
+
+		// inserting new employee input into employee table
+		connection.query(
+			`INSERT INTO employee (first_name, last_name, role_id, manager_id) 
+			VALUES('${fName}', '${lName}', ${roleId}, ${managerId});`,
+			function (err, res, field) {
+				if (err) throw err;
+				inquirer.prompt(introQuestion).then(answerChoices);
+			}
+		);
+	});
+}
+
 // function to store logic for answer choices
 function answerChoices(answer) {
 	if (answer.intro === "View all employees") {
@@ -173,6 +250,8 @@ function answerChoices(answer) {
 		viewAllDepartments();
 	} else if (answer.intro === "View all roles") {
 		viewAllRoles();
+	} else if (answer.intro === "Add an employee") {
+		addNewEmployee();
 	} else if (answer.intro === "Exit application") {
 		connection.end();
 		return;

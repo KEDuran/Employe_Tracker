@@ -2,12 +2,6 @@
 USE employee_db;
 
 -- query to view all employee table data
-DELIMITER //
-
-CREATE PROCEDURE view_all_employees()
-
-BEGIN
-
 SELECT 
 employee.id, 
 employee.first_name,
@@ -22,26 +16,37 @@ LEFT JOIN role ON employee.role_id = role.id
 LEFT JOIN department ON role.id = department.id
 LEFT JOIN employee a ON a.id = employee.manager_id;
 
-END//
-
 -- query to select all department table data
-DELIMITER //
-
-CREATE PROCEDURE view_all_departments ()
-
-BEGIN
-
 SELECT * FROM department;
 
-END//
 
 -- query to select all role table data
-DELIMITER //
-
-CREATE PROCEDURE view_all_roles ()
-
-BEGIN
-
 SELECT * FROM role;
 
-END//
+-- query for all managers
+SELECT
+employee.id,
+CONCAT(employee.first_name, " ", employee.last_name) as manager
+FROM employee
+WHERE employee.manager_id IS NULL;
+
+ -- query to get all roles with corresponding departments
+ SELECT
+ role.title
+ FROM role
+
+-- given a role title, extract the corresponding role id
+SELECT
+role.id
+FROM role
+WHERE role.title = ?;
+
+-- given a name, extract the employee id of manager
+SELECT
+employee.id
+FROM employee
+WHERE CONCAT(employee.first_name, " ", employee.last_name) = ?;
+-- insert query to add new employee
+INSERT INTO employee (first_name, last_name, role_id, manager_id)
+-- template literals will go here
+VALUES (?);
