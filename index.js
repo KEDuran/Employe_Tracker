@@ -385,7 +385,12 @@ function addNewEmployeeRole() {
 
 // Function to update a existing employee role
 function updateEmployeeRole() {
-	inquirer.prompt(updateEmployeeRoleQuestion).then(async function (answers) {});
+	inquirer.prompt(updateEmployeeRoleQuestion).then(async function (answers) {
+		var selectedUpdateRole = answers.updateRole;
+		var selectedUpdateTitle = answers.updateTitle;
+		var selectedUpdateSalary = answers.updateSalary;
+		var selectedUpdateDepartment = answers.updateDepartment;
+	});
 }
 
 // function to store logic for answer choices
