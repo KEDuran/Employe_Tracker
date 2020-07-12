@@ -243,7 +243,19 @@ function addNewEmployee() {
 }
 
 // Function to add a new department
-function addNewDepartment() {}
+function addNewDepartment() {
+	inquirer.prompt(addDepartmentQuestion).then(async function (answers) {
+		// inserting new department input into department table
+		connection.query(
+			`INSERT INTO department (name) VALUES('${answers.newDepartment}');`,
+			function (err, res, field) {
+				if (err) throw err;
+				inquirer.prompt(introQuestion).then(answerChoices);
+			}
+		);
+	});
+}
+
 // function to store logic for answer choices
 function answerChoices(answer) {
 	if (answer.intro === "View all employees") {
