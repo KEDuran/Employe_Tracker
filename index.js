@@ -23,7 +23,7 @@ connection.connect(function (err) {
 });
 
 // Function to validaate that each questions is entered.
-function validation() {
+function validation(value) {
 	if (value != "") {
 		return true;
 	} else {
