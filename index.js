@@ -242,6 +242,8 @@ function addNewEmployee() {
 	});
 }
 
+// Function to add a new department
+function addNewDepartment() {}
 // function to store logic for answer choices
 function answerChoices(answer) {
 	if (answer.intro === "View all employees") {
