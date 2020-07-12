@@ -67,7 +67,7 @@ const addEmployeeQuestion = [
 	{
 		type: "list",
 		name: "employeeRole",
-		message: "Please select the new employee's role.",
+		message: "Please select the employee's role.",
 		choices: function () {
 			var employeeRole = [];
 			for (var i = 0; i < results.length; i++) {
@@ -79,7 +79,7 @@ const addEmployeeQuestion = [
 	{
 		type: "list",
 		name: "employeeManager",
-		message: "Please select the new employee's manager.",
+		message: "Please select the employee's manager.",
 		choices: function () {
 			var employeeMananger = [];
 			for (var i = 0; i < results.length; i++) {
@@ -167,6 +167,7 @@ function viewAllRoles() {
 
 // Function to add a new employee
 function addNewEmployee() {
+	inquirer.prompt(addEmployeeQuestion).then()
 	connection.query(
 		"INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES(?);",
 		function (err, res, field) {
