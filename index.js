@@ -127,6 +127,16 @@ const addRoleQuestion = [
 		message: "Please enter the title of the new role.",
 		validate: validation,
 	},
+	{
+		type: "number",
+		name: "salary",
+		message: "Please enter the salary for this role.",
+		validate: function (value) {
+			if (!value || value < 0) {
+				return "Please enter a valid salary amount.";
+			}
+		},
+	},
 ];
 
 // Question to trigger add new department flow
