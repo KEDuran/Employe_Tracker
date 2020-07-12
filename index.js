@@ -70,10 +70,17 @@ const addEmployeeQuestion = [
 		message: "Please select the employee's role.",
 		choices: function () {
 			var employeeRole = [];
-			for (var i = 0; i < results.length; i++) {
-				employeeRole.push(`${results[i].role}`);
-			}
-			return employeeChoices;
+			connection.query(`SELECT role.title FROM role`, function (
+				err,
+				res,
+				field
+			) {
+				if (err) throw err;
+				for (var i = 0; i < res.length; i++) {
+					employeeRole.push(`${res[i].title}`);
+				}
+			});
+			return employeeRole;
 		},
 	},
 	{
@@ -167,7 +174,7 @@ function viewAllRoles() {
 
 // Function to add a new employee
 function addNewEmployee() {
-	inquirer.prompt(addEmployeeQuestion).then()
+	inquirer.prompt(addEmployeeQuestion).then();
 	connection.query(
 		"INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES(?);",
 		function (err, res, field) {

@@ -32,7 +32,6 @@ WHERE employee.manager_id IS NULL;
 
  -- query to get all roles with corresponding departments
  SELECT
- role.id,
  role.title
  FROM role
 
