@@ -165,6 +165,18 @@ function viewAllRoles() {
 	});
 }
 
+// Function to add a new employee
+function addNewEmployee() {
+	connection.query(
+		"INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES(?);",
+		function (err, res, field) {
+			if (err) throw err;
+			console.table(res);
+			inquirer.prompt(introQuestion).then(answerChoices);
+		}
+	);
+}
+
 // function to store logic for answer choices
 function answerChoices(answer) {
 	if (answer.intro === "View all employees") {
