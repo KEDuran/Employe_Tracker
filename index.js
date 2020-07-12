@@ -153,11 +153,12 @@ const addRoleQuestion = [
 		},
 	},
 	{
-		type: "number",
+		type: "input",
 		name: "salary",
 		message: "Please enter the salary for this role.",
 		validate: function (value) {
-			if (!value || value < 0) {
+			var salary = parseInt(value);
+			if (!salary || salary < 0) {
 				return "Please enter a valid salary amount.";
 			} else {
 				return true;
