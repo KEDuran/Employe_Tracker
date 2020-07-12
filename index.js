@@ -226,7 +226,7 @@ const updateEmployeeRoleQuestion = [
 		},
 	},
 	{
-		type: "input",
+		type: "list",
 		name: "updateDeparment",
 		message:
 			"Please select new department for this role. If no change needed, select current department.",
