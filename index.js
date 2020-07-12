@@ -299,7 +299,7 @@ function addNewEmployeeRole() {
 	inquirer.prompt(addRoleQuestion).then(async function (answers) {
 		var deptName = answers.roleDepartment;
 		var salaryEntered = answers.salary;
-		var titleEntered = answers.title;
+		var titleEntered = answers.newRole;
 		// Extracting the department id for a given department title using async await
 		var promiseWrapper1 = function () {
 			return new Promise((resolve) => {
