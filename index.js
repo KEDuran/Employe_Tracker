@@ -185,6 +185,8 @@ function answerChoices(answer) {
 		viewAllDepartments();
 	} else if (answer.intro === "View all roles") {
 		viewAllRoles();
+	} else if (answer.intro === "Add an employee") {
+		addNewEmployee();
 	} else if (answer.intro === "Exit application") {
 		connection.end();
 		return;
