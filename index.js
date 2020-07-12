@@ -385,7 +385,7 @@ function addNewEmployeeRole() {
 
 // Function to update a existing employee role
 function updateEmployeeRole() {
-	inquirer.prompt(addDepartmentQuestion).then(async function (answers) {});
+	inquirer.prompt(updateEmployeeRoleQuestion).then(async function (answers) {});
 }
 
 // function to store logic for answer choices
