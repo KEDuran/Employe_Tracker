@@ -70,7 +70,7 @@ const addEmployeeQuestion = [
 		message: "Please select the employee's role.",
 		choices: async function () {
 			var employeeRole = [];
-			function promiseWrapper() {
+			var promiseWrapper = function () {
 				return new Promise((resolve) => {
 					connection.query(`SELECT role.title FROM role`, function (
 						err,
@@ -85,7 +85,6 @@ const addEmployeeQuestion = [
 					});
 				});
 			};
-
 			await promiseWrapper();
 			return employeeRole;
 		},
@@ -94,21 +93,27 @@ const addEmployeeQuestion = [
 		type: "list",
 		name: "employeeManager",
 		message: "Please select the employee's manager.",
-		choices: function () {
+		choices: async function () {
 			var employeeMananger = [];
-			connection.query(
-				`SELECT
-				employee.id,
-				CONCAT(employee.first_name, " ", employee.last_name) as manager
-				FROM employee
-				WHERE employee.manager_id IS NULL;`,
-				function (err, res, field) {
-					if (err) throw err;
-					for (var i = 0; i < res.length; i++) {
-						employeeManager.push(`${res[i].manager}`);
-					}
-				}
-			);
+			var promiseWrapper = function () {
+				return new Promise((resolve) => {
+					connection.query(
+						`SELECT
+						employee.id,
+						CONCAT(employee.first_name, " ", employee.last_name) as manager
+						FROM employee
+						WHERE employee.manager_id IS NULL;`,
+						function (err, res, field) {
+							if (err) throw err;
+							for (var i = 0; i < res.length; i++) {
+								employeeManager.push(`${res[i].manager}`);
+							}
+							resolve("resolved");
+						}
+					);
+				});
+			};
+			await promiseWrapper();
 			return employeeMananger;
 		},
 	},
