@@ -128,6 +128,31 @@ const addRoleQuestion = [
 		validate: validation,
 	},
 	{
+		type: "list",
+		name: "roleDepartment",
+		message: "Please select a department for this role.",
+		choices: async function () {
+			var departmentChocies = [];
+			var promiseWrapper = function () {
+				return new Promise((resolve) => {
+					connection.query(`SELECT department.name FROM department`, function (
+						err,
+						res,
+						field
+					) {
+						if (err) throw err;
+						for (var i = 0; i < res.length; i++) {
+							departmentChocies.push(`${res[i].name}`);
+						}
+						resolve("resolved");
+					});
+				});
+			};
+			await promiseWrapper();
+			return departmentChocies;
+		},
+	},
+	{
 		type: "number",
 		name: "salary",
 		message: "Please enter the salary for this role.",
