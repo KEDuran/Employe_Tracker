@@ -256,6 +256,9 @@ function addNewDepartment() {
 	});
 }
 
+// Function to add a new employee role
+function addNewEmployeeRole() {}
+
 // function to store logic for answer choices
 function answerChoices(answer) {
 	if (answer.intro === "View all employees") {
