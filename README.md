@@ -75,4 +75,8 @@ This section will be updated once the application is developed.
 
 ### Database Schema
 
+The image below was generated using the MySQL Workbench application. The image below provides a visual representation of the table relations for the three tables include in the employee-db database.
+
+![Employee Database Schema](images/employeeDBSchema.png)
+
 ### Demo of App Functionality
