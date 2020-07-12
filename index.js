@@ -94,7 +94,7 @@ const addEmployeeQuestion = [
 		name: "employeeManager",
 		message: "Please select the employee's manager.",
 		choices: async function () {
-			var employeeMananger = [];
+			var employeeManager = [];
 			var promiseWrapper = function () {
 				return new Promise((resolve) => {
 					connection.query(
@@ -114,7 +114,7 @@ const addEmployeeQuestion = [
 				});
 			};
 			await promiseWrapper();
-			return employeeMananger;
+			return employeeManager;
 		},
 	},
 ];
