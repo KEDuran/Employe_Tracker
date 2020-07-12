@@ -195,8 +195,19 @@ function viewAllRoles() {
 // Function to add a new employee
 function addNewEmployee() {
 	inquirer.prompt(addEmployeeQuestion).then((answers) => {
+		var fName = answers.firstName;
+		var lName = answers.lastName;
+		var selectedRole = answers.employeeRole;
+		var selectedManager = answers.employeeManager;
 		connection.query(
-			"INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES(?);",
+			`SELECT role.id FROM role WHERE role.title = '${selectedRole}';`,
+			function (err, res, field) {
+				if (err) throw err;
+			}
+		);
+		connection.query(
+			`INSERT INTO employee (first_name, last_name, role_id, manager_id) 
+			VALUES('${fName}', '${lName}');`,
 			function (err, res, field) {
 				if (err) throw err;
 				console.table(res);

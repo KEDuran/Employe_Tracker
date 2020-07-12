@@ -35,6 +35,12 @@ WHERE employee.manager_id IS NULL;
  role.title
  FROM role
 
+-- given a role title, extract the corresponding role id
+SELECT
+role.id
+FROM role
+WHERE role.title = ?;
+
 -- insert query to add new employee
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
 -- template literals will go here
