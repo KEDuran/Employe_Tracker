@@ -310,6 +310,8 @@ function answerChoices(answer) {
 		addNewEmployee();
 	} else if (answer.intro === "Add a department") {
 		addNewDepartment();
+	} else if (answer.intro === "Add an employee role") {
+		addNewEmployeeRole();
 	} else if (answer.intro === "Exit application") {
 		connection.end();
 		return;
