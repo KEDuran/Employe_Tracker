@@ -89,12 +89,20 @@ const addEmployeeQuestion = [
 		message: "Please select the employee's manager.",
 		choices: function () {
 			var employeeMananger = [];
-			for (var i = 0; i < results.length; i++) {
-				employeeManager.push(
-					`${results[i].first_name} ${results[i].last_name}`
-				);
-				return employeeMananger;
-			}
+			connection.query(
+				`SELECT
+				employee.id,
+				CONCAT(employee.first_name, " ", employee.last_name) as manager
+				FROM employee
+				WHERE employee.manager_id IS NULL;`,
+				function (err, res, field) {
+					if (err) throw err;
+					for (var i = 0; i < res.length; i++) {
+						employeeManager.push(`${res[i].manager}`);
+					}
+				}
+			);
+			return employeeMananger;
 		},
 	},
 ];
