@@ -41,8 +41,8 @@ const introQuestion = [
 			"View all departments",
 			"View all roles",
 			"Add an employee",
-			"Add a new deparmenet",
-			"Add a new employee role",
+			"Add a department",
+			"Add an employee role",
 			"Update employee role",
 			"Exit application",
 		],
@@ -266,6 +266,8 @@ function answerChoices(answer) {
 		viewAllRoles();
 	} else if (answer.intro === "Add an employee") {
 		addNewEmployee();
+	} else if (answers.intro === "Add a department") {
+		addNewDepartment();
 	} else if (answer.intro === "Exit application") {
 		connection.end();
 		return;
