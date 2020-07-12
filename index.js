@@ -194,17 +194,29 @@ function viewAllRoles() {
 
 // Function to add a new employee
 function addNewEmployee() {
-	inquirer.prompt(addEmployeeQuestion).then((answers) => {
+	inquirer.prompt(addEmployeeQuestion).then(async function (answers) {
 		var fName = answers.firstName;
 		var lName = answers.lastName;
 		var selectedRole = answers.employeeRole;
 		var selectedManager = answers.employeeManager;
-		connection.query(
-			`SELECT role.id FROM role WHERE role.title = '${selectedRole}';`,
-			function (err, res, field) {
-				if (err) throw err;
-			}
-		);
+		// Extracting the role id for a given role title using async await
+		var promiseWrapper1 = function () {
+			return new Promise((resolve) => {
+				connection.query(
+					`SELECT role.id FROM role WHERE role.title = '${selectedRole}';`,
+					function (err, res, field) {
+						if (err) throw err;
+						resolve(res[0].id);
+					}
+				);
+			});
+		};
+		// roleId variable that will be applies when adding an employee
+		var roleId = await promiseWrapper1();
+
+		// Extracting the manager id for a given manager
+		// mangerId variable that will be applies when adding an employee
+
 		connection.query(
 			`INSERT INTO employee (first_name, last_name, role_id, manager_id) 
 			VALUES('${fName}', '${lName}');`,
