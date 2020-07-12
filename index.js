@@ -383,6 +383,11 @@ function addNewEmployeeRole() {
 	});
 }
 
+// Function to update a existing employee role
+function updateEmployeeRole() {
+	inquirer.prompt(addDepartmentQuestion).then(async function (answers) {});
+}
+
 // function to store logic for answer choices
 function answerChoices(answer) {
 	if (answer.intro === "View all employees") {
@@ -397,6 +402,8 @@ function answerChoices(answer) {
 		addNewDepartment();
 	} else if (answer.intro === "Add an employee role") {
 		addNewEmployeeRole();
+	} else if (answer.intro === "Update employee role") {
+		updateEmployeeRole();
 	} else if (answer.intro === "Exit application") {
 		connection.end();
 		return;
