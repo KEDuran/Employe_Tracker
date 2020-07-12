@@ -257,7 +257,9 @@ function addNewDepartment() {
 }
 
 // Function to add a new employee role
-function addNewEmployeeRole() {}
+function addNewEmployeeRole() {
+	inquirer.prompt(addRoleQuestion).then(async function (answers) {});
+}
 
 // function to store logic for answer choices
 function answerChoices(answer) {
