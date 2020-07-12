@@ -39,4 +39,4 @@ WHERE employee.manager_id IS NULL;
 -- insert query to add new employee
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
 -- template literals will go here
-VALUES ();
+VALUES (?);
