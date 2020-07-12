@@ -46,7 +46,11 @@ SELECT
 employee.id
 FROM employee
 WHERE CONCAT(employee.first_name, " ", employee.last_name) = ?;
+
 -- insert query to add new employee
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
 -- template literals will go here
 VALUES (?);
+
+-- insert query to add new department
+INSERT INTO department (name) VALUES (?);
