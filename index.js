@@ -127,6 +127,44 @@ const addRoleQuestion = [
 		message: "Please enter the title of the new role.",
 		validate: validation,
 	},
+	{
+		type: "list",
+		name: "roleDepartment",
+		message: "Please select a department for this role.",
+		choices: async function () {
+			var departmentChocies = [];
+			var promiseWrapper = function () {
+				return new Promise((resolve) => {
+					connection.query(`SELECT department.name FROM department`, function (
+						err,
+						res,
+						field
+					) {
+						if (err) throw err;
+						for (var i = 0; i < res.length; i++) {
+							departmentChocies.push(`${res[i].name}`);
+						}
+						resolve("resolved");
+					});
+				});
+			};
+			await promiseWrapper();
+			return departmentChocies;
+		},
+	},
+	{
+		type: "input",
+		name: "salary",
+		message: "Please enter the salary for this role.",
+		validate: function (value) {
+			var salary = parseInt(value);
+			if (!salary || salary < 0) {
+				return "Please enter a valid salary amount.";
+			} else {
+				return true;
+			}
+		},
+	},
 ];
 
 // Question to trigger add new department flow
@@ -256,6 +294,37 @@ function addNewDepartment() {
 	});
 }
 
+// Function to add a new employee role
+function addNewEmployeeRole() {
+	inquirer.prompt(addRoleQuestion).then(async function (answers) {
+		var deptName = answers.roleDepartment;
+		var salaryEntered = answers.salary;
+		var titleEntered = answers.newRole;
+		// Extracting the department id for a given department title using async await
+		var promiseWrapper1 = function () {
+			return new Promise((resolve) => {
+				connection.query(
+					`SELECT department.id FROM department WHERE department.name = '${deptName}';`,
+					function (err, res, field) {
+						if (err) throw err;
+						resolve(res[0].id);
+					}
+				);
+			});
+		};
+		var departmentID = await promiseWrapper1();
+		// connection query that will insert new employee role
+		connection.query(
+			`INSERT INTO role (title, salary, department_id) 
+			VALUES('${titleEntered}', ${salaryEntered}, ${departmentID});`,
+			function (err, res, field) {
+				if (err) throw err;
+				inquirer.prompt(introQuestion).then(answerChoices);
+			}
+		);
+	});
+}
+
 // function to store logic for answer choices
 function answerChoices(answer) {
 	if (answer.intro === "View all employees") {
@@ -268,6 +337,8 @@ function answerChoices(answer) {
 		addNewEmployee();
 	} else if (answer.intro === "Add a department") {
 		addNewDepartment();
+	} else if (answer.intro === "Add an employee role") {
+		addNewEmployeeRole();
 	} else if (answer.intro === "Exit application") {
 		connection.end();
 		return;

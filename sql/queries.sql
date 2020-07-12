@@ -54,3 +54,6 @@ VALUES (?);
 
 -- insert query to add new department
 INSERT INTO department (name) VALUES (?);
+
+-- inserr query to add new employee role
+INSERT INTO role (title, salary, department_id) VALUES (?)
