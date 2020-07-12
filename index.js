@@ -419,7 +419,15 @@ function updateEmployeeRole() {
 		};
 		var departmentID = await promiseWrapper2();
 		// connection query that will update an employee role based on user selection
-		
+		connection.query(
+			`INSERT INTO role (title, salary, department_id) 
+			VALUES('${titleEntered}', ${salaryEntered}, ${departmentID});`,
+			function (err, res, field) {
+				if (err) throw err;
+				inquirer.prompt(introQuestion).then(answerChoices);
+			}
+		);
+
 	});
 }
 
