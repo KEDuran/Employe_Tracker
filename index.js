@@ -134,6 +134,8 @@ const addRoleQuestion = [
 		validate: function (value) {
 			if (!value || value < 0) {
 				return "Please enter a valid salary amount.";
+			} else {
+				return true;
 			}
 		},
 	},
