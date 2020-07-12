@@ -215,14 +215,27 @@ function addNewEmployee() {
 		var roleId = await promiseWrapper1();
 
 		// Extracting the manager id for a given manager
+		var promiseWrapper2 = function () {
+			return new Promise((resolve) => {
+				connection.query(
+					`SELECT employee.id FROM employee
+					WHERE CONCAT(employee.first_name, " ", employee.last_name) = '${selectedManager}';`,
+					function (err, res, field) {
+						if (err) throw err;
+						resolve(res[0].id);
+					}
+				);
+			});
+		};
 		// mangerId variable that will be applies when adding an employee
+		var managerId = await promiseWrapper2();
 
+		// inserting new employee input into employee table
 		connection.query(
 			`INSERT INTO employee (first_name, last_name, role_id, manager_id) 
-			VALUES('${fName}', '${lName}');`,
+			VALUES('${fName}', '${lName}', ${roleId}, ${managerId});`,
 			function (err, res, field) {
 				if (err) throw err;
-				console.table(res);
 				inquirer.prompt(introQuestion).then(answerChoices);
 			}
 		);

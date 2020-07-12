@@ -41,6 +41,11 @@ role.id
 FROM role
 WHERE role.title = ?;
 
+-- given a name, extract the employee id of manager
+SELECT
+employee.id
+FROM employee
+WHERE CONCAT(employee.first_name, " ", employee.last_name) = ?;
 -- insert query to add new employee
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
 -- template literals will go here
