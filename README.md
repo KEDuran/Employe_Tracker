@@ -2,6 +2,9 @@
 
 ![GitHub Language Count](https://img.shields.io/github/languages/count/KEDuran/Employee_Tracker?label=Languages%20Used&logo=GitHub)
 ![GitHub Followers](https://img.shields.io/github/followers/KEDuran?color=orange&label=Followers&logo=GitHub)
+![npm](https://img.shields.io/npm/v/mysql?color=yellow&label=mysql&logo=NPM&logoColor=white)
+![npm](https://img.shields.io/npm/v/inquirer?color=green&label=inquirer&logo=NPM&logoColor=white)
+![npm](https://img.shields.io/npm/v/console.table?color=pink&label=console.table&logo=NPM&logoColor=white)
 
 ## Description
 
@@ -11,17 +14,17 @@ The main goal for this assignment is to build command line interface application
 
 Please use the table of contents provided below to navigate through the ReadMe.
 
-- [Links for Submission Items](#links-for-submission-items)
+- [Links for Required Submission Items](#links-for-required-submission-items)
 - [Assignment Scope](#assignment-scope)
 - [Installation](#installation)
-- [Final Output](#final-output)
+- [Database Structure](#database-structure)
 
-## Links for Submission
+## Links for Required Submission Items
 
 Links to submission items will be provided once the assignment is complete.
 
-- Link to GitHub repo will go here
-- Link to demo recording will fo here
+- Link to GitHub repo - [Repo for Employee Tracker App](https://github.com/KEDuran/Employee_Tracker)
+- Link to demo recording - [Demo Recording for Employee Tracker App](https://drive.google.com/file/d/1gSf12LetxqePv8bzVFGV7ntLeab2MXNR/view?usp=sharing)
 
 ## Assignment Scope
 
@@ -37,7 +40,7 @@ So that I can organize and plan my business
 
 ### Acceptance Criteria
 
-Here is a list of the acceptance criteria required for this assignment that was provided by the Trilogy Team.
+Here is a list of the acceptance criteria required for this assignment that was provided by the Trilogy Team. Please note that bonus criteria items were **_not_** coded into this assignment.
 
 #### MVP
 
@@ -49,18 +52,6 @@ The command line application must allow the user to:
 
 - Update employee roles
 
-#### Bonus
-
-For extra credit, the user must be aple to:
-
-- Update employee managers
-
-- View employees by manager
-
-- Delete departments, roles, and employees
-
-- View the total utilized budget of a department (i.e. the combined salaries of all employees in that department)
-
 ## Installation
 
 #### Make Sure to Install / Run
@@ -69,7 +60,7 @@ For extra credit, the user must be aple to:
 - **NPM Install** - The `package.json` file included in this repo already lists all Node modules, NPM packages, and other dependencies that are required to successfully run this application.
   - Please make sure to run the `NPM install` in the root directory to access the following three NPM packages: (a) [MySQL](https://www.npmjs.com/package/mysql), (b) [InquirerJs](https://www.npmjs.com/package/inquirer/v/0.2.3), and (c) [console.table](https://www.npmjs.com/package/console.table).
 
-## Final Output
+## Database Structure
 
 This section will be updated once the application is developed.
 
@@ -79,4 +70,28 @@ The image below was generated using the MySQL Workbench application. The image b
 
 ![Employee Database Schema](images/employeeDBSchema.png)
 
-### Demo of App Functionality
+### Database Table Output
+
+The images below provide visual representation of how the data structured in the `employee_db` database that was created for this assignment.
+
+#### Database Structure via MySQL Workbench Navigator
+
+The image below confirmd that the `employee_db` is composed of the following three tables: (a) deparment table, (b) employee table, and (c) role table.
+
+![Database Tables](images/dbTOC.png)
+
+#### Output per Database Table
+
+The images below provide a visual representation of how the data is stored within each of three tables (i.e. department, employee, and role table).
+
+##### Department Table
+
+![Department Table](images/departmentTable.png)
+
+##### Employee Table
+
+![Employee Table](images/employeeTable.png)
+
+##### Role Table
+
+![Role Table](images/roleTable.png)
