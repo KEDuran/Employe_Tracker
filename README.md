@@ -14,7 +14,7 @@ Please use the table of contents provided below to navigate through the ReadMe.
 - [Links for Submission Items](#links-for-submission-items)
 - [Assignment Scope](#assignment-scope)
 - [Installation](#installation)
-- [Final Output](#final-output)
+- [Database Structure](#database-structure)
 
 ## Links for Submission
 
@@ -69,7 +69,7 @@ For extra credit, the user must be aple to:
 - **NPM Install** - The `package.json` file included in this repo already lists all Node modules, NPM packages, and other dependencies that are required to successfully run this application.
   - Please make sure to run the `NPM install` in the root directory to access the following three NPM packages: (a) [MySQL](https://www.npmjs.com/package/mysql), (b) [InquirerJs](https://www.npmjs.com/package/inquirer/v/0.2.3), and (c) [console.table](https://www.npmjs.com/package/console.table).
 
-## Final Output
+## Database Structure
 
 This section will be updated once the application is developed.
 
@@ -79,4 +79,4 @@ The image below was generated using the MySQL Workbench application. The image b
 
 ![Employee Database Schema](images/employeeDBSchema.png)
 
-### Demo of App Functionality
+### Database Table Output
