@@ -11,16 +11,16 @@ The main goal for this assignment is to build command line interface application
 
 Please use the table of contents provided below to navigate through the ReadMe.
 
-- [Links for Submission Items](#links-for-submission-items)
+- [Links for Required Submission Items](#links-for-required-submission-items)
 - [Assignment Scope](#assignment-scope)
 - [Installation](#installation)
 - [Database Structure](#database-structure)
 
-## Links for Submission
+## Links for Required Submission Items
 
 Links to submission items will be provided once the assignment is complete.
 
-- Link to GitHub repo will go here
+- Link to GitHub repo will go here - [https://github.com/KEDuran/Employee_Tracker](https://github.com/KEDuran/Employee_Tracker)
 - Link to demo recording will fo here
 
 ## Assignment Scope
