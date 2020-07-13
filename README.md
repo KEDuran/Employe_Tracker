@@ -81,10 +81,26 @@ The image below was generated using the MySQL Workbench application. The image b
 
 ### Database Table Output
 
-The images below provide visual representation of how the data structured in the employee_db database that was created for this assignment.
+The images below provide visual representation of how the data structured in the `employee_db` database that was created for this assignment.
 
 #### Database Structure via MySQL Workbench Navigator
 
-The image below confirmd that the employee_db is composed of the following three tables: (a) deparment table, (b) employee table, and (c) role table.
+The image below confirmd that the `employee_db` is composed of the following three tables: (a) deparment table, (b) employee table, and (c) role table.
 
 ![Database Tables](images/dbTOC.png)
+
+#### Output per Database Table
+
+The images below provide a visual representation of how the data is stored within each of three tables (i.e. department, employee, and role table).
+
+##### Department Table
+
+![Department Table](images/departmentTable.png)
+
+##### Employee Table
+
+![Employee Table](images/employeeTable.png)
+
+##### Role Table
+
+![Role Table](images/roleTable.png)
