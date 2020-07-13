@@ -61,8 +61,7 @@ The command line application must allow the user to:
   - Please make sure to run the `NPM install` in the root directory to access the following three NPM packages: (a) [MySQL](https://www.npmjs.com/package/mysql), (b) [InquirerJs](https://www.npmjs.com/package/inquirer/v/0.2.3), and (c) [console.table](https://www.npmjs.com/package/console.table).
 
 ## Database Structure
-
-This section will be updated once the application is developed.
+The content listed in this section demonstrate the structure and output ability to the `employee_db` database that was designed for this assignment.
 
 ### Database Schema
 
