@@ -37,7 +37,7 @@ So that I can organize and plan my business
 
 ### Acceptance Criteria
 
-Here is a list of the acceptance criteria required for this assignment that was provided by the Trilogy Team.
+Here is a list of the acceptance criteria required for this assignment that was provided by the Trilogy Team. Please note that bonus criteria items were **_not_** coded into this assignment.
 
 #### MVP
 
@@ -48,8 +48,6 @@ The command line application must allow the user to:
 - View departments, roles, employees
 
 - Update employee roles
-
-Please note that bonus criteria items were **_not_** coded into this assignment.
 
 ## Installation
 
