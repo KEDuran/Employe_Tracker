@@ -93,14 +93,14 @@ The image below confirmd that the `employee_db` is composed of the following thr
 
 The images below provide a visual representation of how the data is stored within each of three tables (i.e. department, employee, and role table).
 
-##### Department Table
+- ##### Department Table
 
 ![Department Table](images/departmentTable.png)
 
-##### Employee Table
+- ##### Employee Table
 
 ![Employee Table](images/employeeTable.png)
 
-##### Role Table
+- ##### Role Table
 
 ![Role Table](images/roleTable.png)
