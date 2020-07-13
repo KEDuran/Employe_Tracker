@@ -2,6 +2,9 @@
 
 ![GitHub Language Count](https://img.shields.io/github/languages/count/KEDuran/Employee_Tracker?label=Languages%20Used&logo=GitHub)
 ![GitHub Followers](https://img.shields.io/github/followers/KEDuran?color=orange&label=Followers&logo=GitHub)
+![npm](https://img.shields.io/npm/v/mysql?color=yellow&logo=mysql&logoColor=white)
+![npm](https://img.shields.io/npm/v/inquirer?color=green&label=Inquirer&logo=NPM&logoColor=white)
+![npm](https://img.shields.io/npm/v/console.table?color=pink&label=Console.table&logo=NPM&logoColor=white)
 
 ## Description
 
