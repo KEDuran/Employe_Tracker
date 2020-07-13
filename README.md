@@ -20,8 +20,8 @@ Please use the table of contents provided below to navigate through the ReadMe.
 
 Links to submission items will be provided once the assignment is complete.
 
-- Link to GitHub repo - [https://github.com/KEDuran/Employee_Tracker](https://github.com/KEDuran/Employee_Tracker)
-- Link to demo recording - [https://drive.google.com/file/d/1gSf12LetxqePv8bzVFGV7ntLeab2MXNR/view?usp=sharing](https://drive.google.com/file/d/1gSf12LetxqePv8bzVFGV7ntLeab2MXNR/view?usp=sharing)
+- Link to GitHub repo - [Employee_Tracker Repo](https://github.com/KEDuran/Employee_Tracker)
+- Link to demo recording - [Demo Recording for Employee Tracker App](https://drive.google.com/file/d/1gSf12LetxqePv8bzVFGV7ntLeab2MXNR/view?usp=sharing)
 
 ## Assignment Scope
 
