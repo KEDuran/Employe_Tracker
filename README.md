@@ -49,17 +49,7 @@ The command line application must allow the user to:
 
 - Update employee roles
 
-#### Bonus
-
-For extra credit, the user must be aple to:
-
-- Update employee managers
-
-- View employees by manager
-
-- Delete departments, roles, and employees
-
-- View the total utilized budget of a department (i.e. the combined salaries of all employees in that department)
+Please note that bonus criteria items were **_not_** coded into this assignment.
 
 ## Installation
 
@@ -93,14 +83,14 @@ The image below confirmd that the `employee_db` is composed of the following thr
 
 The images below provide a visual representation of how the data is stored within each of three tables (i.e. department, employee, and role table).
 
-- ##### Department Table
+##### Department Table
 
 ![Department Table](images/departmentTable.png)
 
-- ##### Employee Table
+##### Employee Table
 
 ![Employee Table](images/employeeTable.png)
 
-- ##### Role Table
+##### Role Table
 
 ![Role Table](images/roleTable.png)
