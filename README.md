@@ -21,7 +21,7 @@ Please use the table of contents provided below to navigate through the ReadMe.
 
 ## Links for Required Submission Items
 
-Links to submission items will be provided once the assignment is complete.
+Here are the links to the submission items for this assignment.
 
 - Link to GitHub repo - [Repo for Employee Tracker App](https://github.com/KEDuran/Employee_Tracker)
 - Link to demo recording - [Demo Recording for Employee Tracker App](https://drive.google.com/file/d/1gSf12LetxqePv8bzVFGV7ntLeab2MXNR/view?usp=sharing)
